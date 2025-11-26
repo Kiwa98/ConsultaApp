@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox spacing="15" alignment="TOP_CENTER"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.wms.consulta.ConsultaController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <!-- Título -->
+    <Label text="Consulta de Estoque" style="-fx-font-size: 22px;"/>
+
+    <!-- Formulário -->
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints halignment="RIGHT"/>
+            <ColumnConstraints hgrow="ALWAYS"/>
+        </columnConstraints>
+
+        <Label text="EAN:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtEan" promptText="Digite o EAN" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="C.TOTVS:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtCodigo" promptText="Código TOTVS" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+        <Label text="Nome:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="txtNome" promptText="Nome do produto" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+    </GridPane>
+
+    <!-- Botão -->
+    <Button text="Consultar" fx:id="btnConsultar" onAction="#onConsultar" minWidth="150"/>
+    <Button text="Listar Tudo" onAction="#onListarTudo" minWidth="150"/>
+
+    <!-- Tabela -->
+    <TableView fx:id="tabelaResultados" prefHeight="300" prefWidth="600">
+        <columns>
+            <TableColumn fx:id="colEan" text="EAN" prefWidth="100"/>
+            <TableColumn fx:id="colCodigo" text="Código" prefWidth="100"/>
+            <TableColumn fx:id="colNome" text="Nome" prefWidth="200"/>
+            <TableColumn fx:id="colQtd" text="Qtd" prefWidth="80"/>
+            <TableColumn fx:id="colLocal" text="Local" prefWidth="120"/>
+        </columns>
+    </TableView>
+
+</VBox>
